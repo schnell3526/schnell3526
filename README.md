@@ -4,7 +4,7 @@
 - Kansuuji ([リポジトリURL](https://github.com/schnell3526/Kansuuji))  
 漢数字で書かれた数値表現をint型へ変換するpure pythonライブラリ
 
-# 基本情報
+# その他
 ## Statistics
 <div align="center">
     <a href="https://github.com/anuraghazra/github-readme-stats">
