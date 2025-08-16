@@ -44,11 +44,15 @@ ML技術の実応用 (MLOps) およびクラウドネイティブに興味関心
 
 - インフラ
   - AWS
-    - IAM, VPC, S3, EC2, SSM, ParallelCluster(ImageBuilder, CloudFormation)
+    - EC2, ParallelCluster
   - GCP
-    - GCS, IAM(Workload Identity 連携)
 - IaC
-  - Terraform
+  - Terraform, CloudFormation
+- モニタリング
+  - Managed Grafana, Managed Prometheus
+- セキュリティ
+  - AWS: GuardDuty, SSM, IAM
+  - GCP: IAM(Workload Identity 連携)
 - 言語
   - Golang (キャッシュプロキシの実装に利用)
   - Python (デモの学習スクリプトの作成に利用)
@@ -59,3 +63,34 @@ ML技術の実応用 (MLOps) およびクラウドネイティブに興味関心
 - 既存の整理の範疇では対応できない取り組みのため部長/経営層のステークホルダーとの折衝を行いセキュリティ要件を擦り合わせた
 - GCS -> AWS のデータ転送料金を N% 削減した
 - 期間中のGPU利用率 N% を達成した
+
+#### LLMOps 基盤の構築 (2025/05~)
+
+【チーム編成】
+
+- MLOps エンジニア: 2人
+- プロダクトサイドエンジニア: 2人
+  - LLM 機能の開発者
+
+【業務内容】
+
+プロダクトサイドの需要もあり、LLMOps ツールである Langfuse(V2) を EKS + マネージドサービスを利用して構築
+
+具体的な業務は以下
+- デプロイ方法の検討
+  - 最終的に EKS でアプリケーション層 (Web, Worker) をデプロイ、ClickHouse は ECS でセルフマネージド、その他の DB は RDS や ElastiCache を利用することで既存のステートレス EKS の BG デプロイの際に追加運用を発生させずに済む構成でデプロイ
+- Okta SSO との連携検証
+  - 機密データを管理するので会社のセキュリティ基準を踏まえて Okta Group を動的に変更して時限式でログインできる仕組みを構築
+
+【スキルスタック】
+- ミドルウェア
+  - ClickHouse(on ECS), RDS, ElastiCache Valkey
+- IaC
+  - Terraform, k8s manifest
+- モニタリング
+  - EKS: fluent-bit, CloudWatch, DataDog
+  - ECS: CloudWatch
+- セキュリティ
+  - Okta, AWS IAM Identity Center
+- 言語
+  - TypeScript
