@@ -98,7 +98,7 @@ ML基盤に特化した Platform Engineer。NLP 研究のバックグラウン�
 | aws/karpenter-provider-aws              | 機能追加 PR        | [#8913](https://github.com/aws/karpenter-provider-aws/pull/8913)              |
 | schnell3526/terraform-provider-helm     | forkのメンテナンス | https://github.com/schnell3526/terraform-provider-helm                        |
 
-※ 今後追加予定
+※ Issue 出しや Issue での議論はこまめにやっています
 
 ---
 
