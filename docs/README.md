@@ -94,8 +94,9 @@ ML基盤に特化した Platform Engineer。NLP 研究のバックグラウン�
 
 | プロジェクト               | 内容        | リンク                                                           |
 | -------------------------- | ----------- | ---------------------------------------------------------------- |
+|hashicorp/terraform-provider-kubernetes|docs 更新|[#2823](https://github.com/hashicorp/terraform-provider-kubernetes/pull/2823)|
 | aws/karpenter-provider-aws | 機能追加 PR | [#8913](https://github.com/aws/karpenter-provider-aws/pull/8913) |
-|schnell3526/terraform-provider-helm|Hashicorp 側での反映までの繋ぎとして個人で Terraform Helm Provider のメンテをしている|https://github.com/schnell3526/terraform-provider-helm|
+|schnell3526/terraform-provider-helm|forkのメンテナンス|https://github.com/schnell3526/terraform-provider-helm|
 
 ※ 今後追加予定
 
