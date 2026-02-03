@@ -25,7 +25,7 @@ ML基盤に特化した Platform Engineer。NLP 研究のバックグラウン�
 
 研究開発部門向け ML 基盤「Circuit」の Platform チームに所属。78ノード・1,000+ Pod 規模（Karpenter により最大200ノードまで自動スケール）の EKS クラスタのオーナーとして、設計から運用まで一貫して担当しています。
 
-**主な取り組み：**
+**主な取り組み**
 
 - Karpenter による GPU/CPU ノードの自動プロビジョニング設計・運用
 - ArgoCD を用いた GitOps によるデプロイフローの構築・改善
@@ -43,7 +43,7 @@ ML基盤に特化した Platform Engineer。NLP 研究のバックグラウン�
 
 **チーム編成：** MLOps エンジニア 1名（自分）、MLエンジニア 3名、プロジェクトリード 1名
 
-**主な取り組み：**
+**主な取り組み**
 
 - AWS ParallelCluster + Slurm を用いた大規模 GPU 学習環境の設計・構築
 - GCP → AWS のデータ転送コスト削減のためのキャッシュプロキシ実装（Golang）
@@ -60,7 +60,7 @@ ML基盤に特化した Platform Engineer。NLP 研究のバックグラウン�
 
 **チーム編成：** MLOps エンジニア 2名、プロダクトサイドエンジニア 2名
 
-**主な取り組み：**
+**主な取り組み**
 
 - EKS（アプリケーション層）+ ECS（ClickHouse）+ マネージドサービス（RDS, ElastiCache）のハイブリッド構成設計
 - 既存の Blue/Green デプロイフローに追加運用を発生させない構成を実現
@@ -74,7 +74,7 @@ ML基盤に特化した Platform Engineer。NLP 研究のバックグラウン�
 
 分散管理されていた複数サービスをモノレポに統合し、開発・運用効率を改善しました。
 
-**主な取り組み：**
+**主な取り組み**
 
 - 最新の Python 開発環境（DevContainer, UV, AI 補完設定）を標準化
 - GitHub Actions 経由で10秒での新規プロジェクト作成を実現
@@ -95,6 +95,7 @@ ML基盤に特化した Platform Engineer。NLP 研究のバックグラウン�
 | プロジェクト               | 内容        | リンク                                                           |
 | -------------------------- | ----------- | ---------------------------------------------------------------- |
 | aws/karpenter-provider-aws | 機能追加 PR | [#8913](https://github.com/aws/karpenter-provider-aws/pull/8913) |
+|schnell3526/terraform-provider-helm|Hashicorp 側での反映までの繋ぎとして個人で Terraform Helm Provider のメンテをしている|https://github.com/schnell3526/terraform-provider-helm|
 
 ※ 今後追加予定
 
