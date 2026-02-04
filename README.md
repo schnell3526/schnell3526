@@ -1,10 +1,14 @@
-<!-- 
-# 製作物一覧
-- [ポケモン図鑑](https://schnell3526.github.io/Pokedex-app/) ([リポジトリURL](https://github.com/schnell3526/Pokedex-app))
-- Tech Match ([リポジトリURL](https://github.com/schnell3526/tech_match))
-- Kansuuji ([リポジトリURL](https://github.com/schnell3526/Kansuuji))  
-漢数字で書かれた数値表現をint型へ変換するpure pythonライブラリ
--->
+<picture>
+  <source
+    srcset="https://github-readme-stats.vercel.app/api?username=anuraghazra&show_icons=true&theme=dark"
+    media="(prefers-color-scheme: dark)"
+  />
+  <source
+    srcset="https://github-readme-stats.vercel.app/api?username=anuraghazra&show_icons=true"
+    media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+  />
+  <img src="https://github-readme-stats.vercel.app/api?username=anuraghazra&show_icons=true" />
+</picture>
 
 # その他
 ## Statistics
