@@ -13,7 +13,7 @@
 
 ML基盤に特化した Platform Engineer。NLP 研究のバックグラウンドを持ち、学生時代に約900GPU での分散学習を経験し ML の本番運用における基盤の重要性を実感し、ML 基盤エンジニアの道に進みました。
 
-現在は研究開発部門向け EKS クラスタ（本番 78ノード・1,000+ Pod）のオーナーとして設計・構築・運用を担当し Kubernetes / AWS を中心としたクラウドネイティブ技術に精通し、課題に対して OSS 導入・Controller 内製・OSS 貢献・文化醸成のいずれで解決すべきかを判断できることを強みとして働いています。
+現在は研究開発部門向け EKS クラスタ（本番 80-200ノード・1,000+ Pod）のオーナーとして設計・構築・運用を担当し Kubernetes / AWS を中心としたクラウドネイティブ技術に精通し、課題に対して OSS 導入・Controller 内製・OSS 貢献・文化醸成のいずれで解決すべきかを判断できることを強みとして働いています。
 
 ---
 
@@ -23,34 +23,39 @@ ML基盤に特化した Platform Engineer。NLP 研究のバックグラウン�
 
 ### EKS アプリケーションプラットフォームの設計・構築・運用 (2025/10〜現在)
 
-研究開発部門向け ML 基盤「Circuit」の Platform チームに所属。78ノード・1,000+ Pod 規模（Karpenter により最大200ノードまで自動スケール）の EKS クラスタのオーナーとして、設計から運用まで一貫して担当しています。
+研究開発部門向け ML 基盤「Circuit」の Platform チームに所属。80-200ノード・1,000+ Pod 規模の EKS クラスタのオーナーとして、設計から運用まで一貫して担当しています。
 
 **主な取り組み**
 
-- Karpenter による GPU/CPU ノードの自動プロビジョニング設計・運用
-- ArgoCD を用いた GitOps によるデプロイフローの構築・改善
-- KEDA（ScaledObject）の導入提案により、SQS キュー長に基づく動的スケーリングを実現
-- S3 CSI Driver の検証・本番導入を主導し、ML モデルの weight 管理を効率化
-  - イメージビルド + ECR push の時間を20分から5分に短縮
+- 基盤としてのスケーラビリティを担保するための Platform の責務境界 (IF) の設計
+  - Pod Identity 移行を見越した IRSA の運用方針の策定と設定責務移譲設計
+  - マルチテナントクラスタの NodePool 設計
+- Kubernetes 運用体制の構築
+  - コントロールプレーンのバージョン更新戦略の作成
+  - 各種 Controller の運用 (version up 戦略や運用の考慮事項の周知) 方針策定
+- Platform の拡張コンポーネントの実装と運用
+  - ArgoCD と連携する Image 更新 worker の実装
+  - Job/Workflow の実行完了通知の仕組み
+  - GPU インスタンスの RI 使用量を把握するための Controller の実装
 
-**技術スタック：** EKS, Karpenter, ArgoCD, Terraform, Prometheus/Grafana, Datadog
+**技術スタック：** EKS, Karpenter, ArgoCD, Argo Workflows, KEDA, GPU Operator, Istio, Terraform, Datadog
 
 ---
 
-### GENIAC プロジェクト：大規模 GPU クラスタの構築 (2025/07〜2026/02)
+### GENIAC プロジェクト: GPU クラスタの構築 (2025/07〜2026/02)
 
-経済産業省 GENIAC プロジェクトにおいて、AWS ParallelCluster + Slurm による大規模 GPU 実験基盤の構築を技術選定からリードしました。
+経済産業省 GENIAC プロジェクトにおいて、AWS ParallelCluster による大規模 GPU 実験基盤の構築を技術選定からリードしました。
 
 **チーム編成：** MLOps エンジニア 1名（自分）、MLエンジニア 3名、プロジェクトリード 1名
 
 **主な取り組み**
 
-- AWS ParallelCluster + Slurm を用いた大規模 GPU 学習環境の設計・構築
-- GCP → AWS のデータ転送コスト削減のためのキャッシュプロキシ実装（Golang）
+- AWS ParallelCluster を用いた GPU 学習環境の設計・構築
+- GCP → AWS のデータ転送コスト削減のための google sdk, aws sdk 互換のキャッシュプロキシ実装（Golang）
 - GPU 利用率モニタリングシステムの構築
-- エンタープライズ水準のセキュリティ要件を満たすための CTO・情報セキュリティ部門長との折衝
+- エンタープライズ水準のセキュリティ要件を満たすためのシステム設計および CTO・情報セキュリティ部門長との折衝
 
-**技術スタック：** ParallelCluster, Slurm, EC2, Terraform, CloudFormation, Golang, Workload Identity Federation
+**技術スタック：** AWS ParallelCluster (Slurm, CloudFormation), AWS VPC, Terraform, Okta, Golang, Workload Identity Federation (Google Cloud 連携)
 
 ---
 
@@ -76,7 +81,7 @@ ML基盤に特化した Platform Engineer。NLP 研究のバックグラウン�
 
 **主な取り組み**
 
-- 最新の Python 開発環境（DevContainer, UV, AI 補完設定）を標準化
+- 最新の Python 開発環境（DevContainer, UV, AI ）を標準化
 - GitHub Actions 経由で10秒での新規プロジェクト作成を実現
 - 実動作するプロジェクトとしてテンプレートを管理し、Cookiecutter 方式と比べてメンテナンス工数を削減
 
