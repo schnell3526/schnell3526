@@ -93,7 +93,7 @@ ML基盤に特化した Platform Engineer。NLP 研究のバックグラウン�
 - MLOps エンジニアに求められるスキルの言語化・評価基準の策定
 - インターン生のメンタリング（1名）
 - コミュニティイベント登壇
-  - https://sansan.connpass.com/event/380668/
+  - [渋谷 Biz × AI: ビジネスにおける AI 利活用 事例勉強会 第4回](https://sansan.connpass.com/event/380668)
 
 ---
 
