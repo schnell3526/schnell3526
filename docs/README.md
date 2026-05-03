@@ -21,6 +21,29 @@ ML基盤に特化した Platform Engineer。NLP 研究のバックグラウン�
 
 ## Sansan 株式会社（2024/04〜現在）
 
+### セキュリティと利便性を両立する研究開発クラスタの構築 (2026/03〜現在)
+
+研究開発部門向け EKS 基盤の次世代設計プロジェクト。エンタープライズ水準のセキュリティ要件を担保しつつ、研究者・ML エンジニアの開発生産性を損なわないクラスタ設計を進めています。研究開発部門・情報セキュリティ部門・インフラ部門など複数部門を横断する取り組みであり、50 名以上のステークホルダーとの合意形成・要件調整を伴います。
+
+**主な取り組み**
+
+- ネットワーク・セキュリティ境界の設計
+  - VPC / Subnet 構成および Egress 制御の見直し
+  - tetragon (eBPF) を用いたランタイムセキュリティ監視の導入
+- 認証・認可・Secrets 基盤
+  - Pod Identity を前提とした権限委譲モデルの設計
+  - 監査要件を満たす Secrets 配布フローの標準化
+- マルチテナント・ガバナンス
+  - Kueue を用いた GPU リソースの公平なジョブキューイング設計
+  - NodePool 分離と Karpenter による動的スケーリングの両立
+- 監査・可観測性・DevEx 改善
+  - New Relic を中心とした監査ログ / メトリクスの統合基盤
+  - Coder による研究者向けセルフサービス開発環境の提供
+
+**技術スタック：** EKS, Karpenter, Kueue, Coder, tetragon, New Relic, Terraform
+
+---
+
 ### EKS アプリケーションプラットフォームの設計・構築・運用 (2025/10〜現在)
 
 研究開発部門向け ML 基盤「Circuit」の Platform チームに所属。80-200ノード・1,000+ Pod 規模の EKS クラスタのオーナーとして、設計から運用まで一貫して担当しています。
@@ -51,11 +74,16 @@ ML基盤に特化した Platform Engineer。NLP 研究のバックグラウン�
 **主な取り組み**
 
 - AWS ParallelCluster を用いた GPU 学習環境の設計・構築
-- GCP → AWS のデータ転送コスト削減のための google sdk, aws sdk 互換のキャッシュプロキシ実装（Golang）
+- GCP → AWS のデータ転送コスト削減のための google sdk, aws sdk 互換のキャッシュプロキシの設計（実装の一部はインターン生に委譲、Golang）
 - GPU 利用率モニタリングシステムの構築
 - エンタープライズ水準のセキュリティ要件を満たすためのシステム設計および CTO・情報セキュリティ部門長との折衝
 
 **技術スタック：** AWS ParallelCluster (Slurm, CloudFormation), AWS VPC, Terraform, Okta, Golang, Workload Identity Federation (Google Cloud 連携)
+
+**関連記事**
+
+- [GENIAC における ParallelCluster GPU クラスタの構築記録 (Sansan Tech Blog)](https://buildersbox.corp-sansan.com/entry/2026/03/27/170000)
+- [GCS→S3キャッシュプロキシで大規模ML学習のデータ転送コストを削減した話 (Sansan Tech Blog)](https://buildersbox.corp-sansan.com/entry/2026/01/07/140000)（メンタリング担当のインターン生による執筆）
 
 ---
 
@@ -102,7 +130,6 @@ ML基盤に特化した Platform Engineer。NLP 研究のバックグラウン�
 | プロジェクト                            | 内容               | リンク                                                                        |
 | --------------------------------------- | ------------------ | ----------------------------------------------------------------------------- |
 | hashicorp/terraform-provider-kubernetes | docs 更新          | [#2823](https://github.com/hashicorp/terraform-provider-kubernetes/pull/2823) |
-| aws/karpenter-provider-aws              | 機能追加 PR        | [#8913](https://github.com/aws/karpenter-provider-aws/pull/8913)              |
 | schnell3526/terraform-provider-helm     | forkのメンテナンス | https://github.com/schnell3526/terraform-provider-helm                        |
 
 ※ Issue 出しや Issue での議論はこまめにやっています
