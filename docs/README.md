@@ -50,7 +50,7 @@ Kubernetes / AWS を中心としたクラウドネイティブ技術に精通し
   - New Relic を中心とした監査ログ / メトリクスの統合基盤
   - Coder による研究者向けセルフサービス開発環境の提供
 
-**技術スタック：** EKS, Karpenter, Kueue, Coder, tetragon, New Relic, Terraform
+**技術スタック：** EKS, Karpenter, GPU Operator, Kueue, Coder, tetragon, New Relic, Terraform
 
 ---
 
@@ -71,7 +71,7 @@ Kubernetes / AWS を中心としたクラウドネイティブ技術に精通し
   - Job/Workflow の実行完了通知の仕組み
   - GPU インスタンスの RI 使用量を把握するための Controller の実装
 
-**技術スタック：** EKS, Karpenter, ArgoCD, Argo Workflows, KEDA, GPU Operator, Istio, Terraform, Datadog
+**技術スタック：** EKS, Karpenter, GPU Operator, ArgoCD, Argo Workflows, Argo Rollouts, KEDA, Istio, Terraform, Datadog, NewRelic
 
 ---
 
@@ -93,7 +93,7 @@ Cycle3 では AWS ParallelCluster を採用し、Cycle4 では部門の技術ス
   - Cycle4: メトリクス収集 DaemonSet -> NewRelic
 - エンタープライズ水準のセキュリティ要件を満たすためのシステム設計および CTO・情報セキュリティ部門長との折衝
 
-**技術スタック：** AWS ParallelCluster (Slurm, CloudFormation), AWS VPC, Terraform, Okta, Golang, Workload Identity Federation (Google Cloud 連携)
+**技術スタック：** AWS ParallelCluster (Slurm, CloudFormation), Amazon EKS, Terraform, Okta
 
 **関連記事**
 
