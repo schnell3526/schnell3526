@@ -7,16 +7,22 @@
 | 最終学歴 | 早稲田大学大学院基幹理工学研究科 河原大輔研究室 (自然言語処理専攻; 修士卒) |
 | 資格     | TOEIC Listening & Reading Test 810                                         |
 | 現所属   | Sansan株式会社                                                             |
-| 職種     | Platform Engineer                                                          |
+| 職種     | ML Platform Engineer                                                       |
 
 ## Summary
 
-MLドメインとの連携(研究者/データサイエンティストとの協業、GPUの扱い、CDE/Job 基盤といった特殊用途)に強みを持つ Platform Engineer です。
-NLP 研究者としてのバックグラウンドを持ち、学生時代に約 120 ノード 960 GPU での分散学習を経験し ML の本番運用における基盤の重要性を実感し、ML 基盤エンジニアの道に進みました。
+ML ドメインとの連携（研究者・データサイエンティストとの協業、GPU の活用、CDE / Job 基盤などの特殊な用途）に強みを持つ ML Platform Engineer です。
 
-現在は研究開発部門向けの 2種類の EKS クラスタ（マイクロサービス基盤:本番 80-200ノード・5,000+ Pod、CDE/Job 基盤: 40+研究者が利用, マルチノード分散学習対応）のオーナーとして設計・構築・運用を担当し Kubernetes / AWS を中心としたクラウドネイティブ技術に精通し、課題に対して OSS 導入・Controller 内製・OSS 貢献・文化醸成のいずれで解決すべきかを判断できることを強みとして働いています。
+NLP 研究者としてのバックグラウンドがあります。学生時代に約 120 ノード・960 GPU の分散学習を経験して ML の本番運用における基盤の重要性を実感し、ML 基盤エンジニアの道に進みました。
 
-また、副業として Agent Platform (VertexAI) や BigQuery を活用した MLOps 系の業務にも従事しています。
+現在は研究開発部門向けの 2 種類の EKS クラスタのオーナーとして、設計・構築・運用を担当しています。
+
+- **推論基盤：** 本番 150〜250 ノード
+- **CDE / Job 基盤：** 50 名以上の研究者が利用、マルチノード分散学習に対応
+
+Kubernetes / AWS を中心としたクラウドネイティブ技術に精通しています。課題を OSS の導入、Controller の内製、OSS への貢献、文化の醸成のどれで解決すべきか判断できることが強みです。
+
+また、副業として Agent Platform（Vertex AI）や BigQuery を活用した MLOps 関連の業務にも従事しています。
 
 ---
 
@@ -49,7 +55,7 @@ NLP 研究者としてのバックグラウンドを持ち、学生時代に約 
 
 ### EKS アプリケーションプラットフォームの設計・構築・運用 (2025/10〜現在)
 
-研究開発部門向け ML 基盤「Circuit」の Platform チームに所属。80-200ノード・1,000+ Pod 規模の EKS クラスタのオーナーとして、設計から運用まで一貫して担当しています。
+研究開発部門向け ML 基盤「Circuit」の Platform チームに所属。150〜250 ノード規模の EKS クラスタのオーナーとして、設計から運用まで一貫して担当しています。
 
 **主な取り組み**
 
@@ -58,7 +64,7 @@ NLP 研究者としてのバックグラウンドを持ち、学生時代に約 
   - マルチテナントクラスタの NodePool 設計
 - Kubernetes 運用体制の構築
   - コントロールプレーンのバージョン更新戦略の作成
-  - 各種 Controller の運用 (version up 戦略や運用の考慮事項の周知) 方針策定
+  - 各種 Controller の運用方針策定（バージョンアップ戦略、運用上の考慮事項の周知）
 - Platform の拡張コンポーネントの実装と運用
   - ArgoCD と連携する Image 更新 worker の実装
   - Job/Workflow の実行完了通知の仕組み
@@ -77,7 +83,7 @@ NLP 研究者としてのバックグラウンドを持ち、学生時代に約 
 **主な取り組み**
 
 - AWS ParallelCluster を用いた GPU 学習環境の設計・構築
-- GCP → AWS のデータ転送コスト削減のための google sdk, aws sdk 互換のキャッシュプロキシの設計（実装の一部はインターン生に委譲、Golang）
+- GCP → AWS のデータ転送コスト削減のための Google Cloud SDK・AWS SDK 互換のキャッシュプロキシの設計（実装の一部はインターン生に委譲、Golang）
 - GPU 利用率モニタリングシステムの構築
 - エンタープライズ水準のセキュリティ要件を満たすためのシステム設計および CTO・情報セキュリティ部門長との折衝
 
@@ -112,8 +118,8 @@ NLP 研究者としてのバックグラウンドを持ち、学生時代に約 
 
 **主な取り組み**
 
-- 最新の Python 開発環境（DevContainer, UV, AI ）を標準化
-- GitHub Actions 経由で10秒での新規プロジェクト作成を実現
+- 最新の Python 開発環境（Dev Container, uv, AI ツール）を標準化
+- GitHub Actions を使い、10 秒で新規プロジェクトを作成できる仕組みを実現
 - 実動作するプロジェクトとしてテンプレートを管理し、Cookiecutter 方式と比べてメンテナンス工数を削減
 
 ---
@@ -130,12 +136,20 @@ NLP 研究者としてのバックグラウンドを持ち、学生時代に約 
 
 ## OSS 貢献
 
-| プロジェクト                            | 内容               | リンク                                                                        |
-| --------------------------------------- | ------------------ | ----------------------------------------------------------------------------- |
-| hashicorp/terraform-provider-kubernetes | docs 更新          | [#2823](https://github.com/hashicorp/terraform-provider-kubernetes/pull/2823) |
-| schnell3526/terraform-provider-helm     | forkのメンテナンス | https://github.com/schnell3526/terraform-provider-helm                        |
+### マージされた主なコントリビューション
 
-※ Issue 出しや Issue での議論はこまめにやっています
+| プロジェクト | 内容 | リンク |
+| --- | --- | --- |
+| coder/registry | vscode-web の healthcheck 先を `/version` に修正 | [#923](https://github.com/coder/registry/pull/923) |
+| hashicorp/terraform-provider-kubernetes | ドキュメントとサンプルの exec 認証の API version を `v1` に更新 | [#2823](https://github.com/hashicorp/terraform-provider-kubernetes/pull/2823) |
+| pytorch/tutorials | チュートリアルのモデル定義から出力層の不要な ReLU を削除 | [#1644](https://github.com/pytorch/tutorials/pull/1644) |
+| EducationalTestingService/factor_analyzer | `randomized_svd()` に `random_state` を指定して警告を解消 | [#95](https://github.com/EducationalTestingService/factor_analyzer/pull/95) |
+
+### フォークのメンテナンス
+
+- [schnell3526/terraform-provider-helm](https://github.com/schnell3526/terraform-provider-helm)
+
+※ Issue の起票や Issue 上の議論にも継続的に参加しています
 
 ---
 
@@ -155,9 +169,9 @@ ECS on EC2 の GPU 環境における可観測性の設計・構築を支援。D
 
 ## ML 推論最適化
 
-量子化、プルーニング、知識蒸留などのモデル圧縮技術や、TensorRT、ONNX Runtime、vLLM などの推論エンジンを活用した高速化に関心があり、大規模言語モデルの推論コスト削減とレイテンシ改善を追求できるような仕事に興味があります。
+量子化、プルーニング、知識蒸留などのモデル圧縮技術や、TensorRT、ONNX Runtime、vLLM などの推論エンジンを活用した高速化に関心があり、大規模言語モデルの推論コスト削減とレイテンシ改善を追求できる仕事に興味があります。
 
-約960GPU での分散学習経験（データ並列、パイプライン並列、ZeRO）と Transformer アーキテクチャの研究開発経験が、この領域への足がかりになると考えています。
+約 960 GPU での分散学習経験（データ並列、パイプライン並列、ZeRO）と Transformer アーキテクチャの研究開発経験が、この領域への足がかりになると考えています。
 
 ## Platform Engineering / SRE
 
