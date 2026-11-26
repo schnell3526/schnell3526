@@ -141,23 +141,35 @@ Kubernetes / AWS を中心としたクラウドネイティブ技術を軸に、
 
 ### GENIAC プロジェクト: GPU クラスタの構築 (2025/07〜2026/02、2026/07〜現在; 2027/02 終了予定)
 
-経済産業省 GENIAC プロジェクトにおいて、Cycle3 で GPU クラスタの構築管理をリードし、現在は Cycle4 でも引き続きリードしています。
-Cycle3 では AWS ParallelCluster を採用し、Cycle4 では部門の技術スタックの親和性を考慮して Kubernetes ベースのマルチノード分散学習にも対応するクラスタを構築しています。Cycle4 のクラスタは、研究開発クラスタ（CDE / Job 基盤）の spoke として使えるように設計しています。
+経済産業省 GENIAC プロジェクトにおいて、Cycle3 で GPU クラスタの構築管理をリードし、現在は Cycle4 でも引き続きリードしています。Cycle3 は「視覚接地した文書特化型視覚言語基盤モデルの構築」というテーマで採択されたものです。
 
 **チーム編成：** MLOps エンジニア 1名（自分）、MLエンジニア 3名、プロジェクトリード 1名
 
+**技術選定**
+
+- Cycle3: Slurm（AWS ParallelCluster）を採用。ML エンジニアの学習コストが低いこと、数日〜数週間走る事前学習では Kubernetes だと Eviction 対策などの追加設計が要ること、期間限定のプロジェクトで組織の標準外でも長期的な負債にならないことから判断した
+- Cycle4: Cycle3 の振り返りから、マルチテナントやセキュリティの要件を OS レベルの設定で頑張るより、部門に蓄積のある Kubernetes に乗せる方が合理的と判断し、マルチノード分散学習にも対応する EKS ベースのクラスタに切り替えた。研究開発クラスタ（CDE / Job 基盤）の spoke として使えるように設計している
+
 **主な取り組み**
 
-- AWS ParallelCluster / Amazon EKS を用いた GPU 学習環境の設計・構築
+- p5.48xlarge（NVIDIA H100 × 8）による GPU 学習環境の設計・構築（Cycle3）
+  - EFA / Placement Group を有効にした構成を Terraform でコード化し、インフラ担当 1 名で 3 週間でマルチユーザー運用・監視・セキュリティ対応まで含めて提供開始
+  - ODCR で確保した GPU を夜間・休日も遊ばせないよう、複数の ML エンジニアが非同期に Job を投入できるスケジューラ前提の運用にした
+  - 1 ノード内の GPU を複数人で共有するための排他制御を、cgroups による分離の検証を経て、Slurm の gres と GPU 枚数に比例した CPU / メモリ配分の運用ルールで実現
 - GCP → AWS のデータ転送コスト削減のための Google Cloud SDK・AWS SDK 互換のキャッシュプロキシの設計（実装の一部はインターン生に委譲、Go）
+  - 課題：約 20TB のデータセットを 100 エポック以上、毎エポック GCS から直接読む学習では、転送コストが試算で約 $240,000 に達する。削除依頼への即時対応などデータガバナンス上の要件があり、データセットを事前に丸ごとコピーする方法は取れなかった
+  - GCS から取得したデータを S3 にキャッシュする方式にし、ML 側の変更をエンドポイントの設定だけに抑えた
+  - 成果：データ転送料金を従来の 1/100 以下に削減（プロキシ経由の遅延は 10〜20% 程度）。コストの懸念で踏み出せなかった大規模な事前学習に取り組めるようになった
   - Cycle3: 各ノードに systemd でデプロイ
   - Cycle4: Pod 単位の細かい認可要件を満たすために K8s サイドカーとしてデプロイ
-- GPU メトリクス（使用率、メモリ使用率、SM 使用率、帯域使用率、NVLink 使用率、Xid エラー等）のモニタリングシステムの構築
-  - Cycle3: メトリクス送信 Job (on systemd timer) -> Amazon CloudWatch
-  - Cycle4: メトリクス収集 DaemonSet -> New Relic
+- GPU の利用状況のモニタリングシステムの構築
+  - Cycle3: 自社のセキュリティ基準上 W&B が使えなかったため自前で構築。systemd timer で GPU 使用率・メモリ使用率を収集して Amazon CloudWatch に送信し、利用率が低い状態が続くと Slack に通知するアラートを設定
+  - Cycle4: メトリクス収集 DaemonSet -> New Relic。使用率、メモリ使用率、SM 使用率、帯域使用率、NVLink 使用率、Xid エラーなど、分散学習のボトルネック分析に使えるメトリクスまで収集
 - エンタープライズ水準のセキュリティ要件を満たすためのシステム設計および CTO・情報セキュリティ部門長との折衝
+  - 自社の AWS Organizations 外から払い出されるアカウントで IAM Identity Center が使えない前提のもと、全ノードを Private Subnet に置き、クロスアカウント IAM ロール + SSM Session Manager でアクセス経路を設計
+  - GuardDuty / CloudTrail / VPC Flow Logs のログを管理アカウント側の SIEM に連携し、メトリクスは OAM で既存のダッシュボードに統合
 
-**技術スタック：** AWS ParallelCluster (Slurm, CloudFormation), Amazon EKS, Terraform, Okta
+**技術スタック：** AWS ParallelCluster (Slurm, CloudFormation), Amazon EKS, Terraform, Amazon CloudWatch, New Relic, Okta
 
 **関連記事**
 
