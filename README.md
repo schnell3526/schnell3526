@@ -2,7 +2,7 @@
 
 **ML Platform Engineer** at [Sansan](https://github.com/sansaninc) · Tokyo, Japan
 
-NLP 研究のバックグラウンドを持つ Platform Engineer です。<br>
+NLP 研究のバックグラウンドを持つ ML Platform Engineer です。<br>
 研究者や ML エンジニアが使う Kubernetes / GPU 基盤の設計・構築・運用をしています。
 
 `Distributed Training` `Kubernetes` `Slurm` `AWS` `Terraform` `CNCF`
