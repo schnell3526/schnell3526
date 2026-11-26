@@ -5,7 +5,7 @@
 | 名前     | 伊藤俊太朗                                                                 |
 | 居住地   | 東京都                                                                     |
 | 最終学歴 | 早稲田大学大学院基幹理工学研究科 河原大輔研究室 (自然言語処理専攻; 修士卒) |
-| 資格     | TOEIC Listening & Reading Test 810                                         |
+| 資格     | TOEIC Listening & Reading Test 810 / 個人情報保護士                        |
 | 現所属   | Sansan株式会社                                                             |
 | 職種     | ML Platform Engineer                                                       |
 | リンク   | [GitHub](https://github.com/schnell3526) / [Hugging Face](https://huggingface.co/schnell) |
