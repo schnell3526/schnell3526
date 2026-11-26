@@ -79,8 +79,8 @@ Kubernetes / AWS を中心としたクラウドネイティブ技術を軸に、
     - Renovate による新しい AMI の検知
     - stg 環境でのクリティカルな GPU ワークロードの動作確認と、Argo Workflows で作成したテスト用 Workflow による事前のエラー検知
     - AMI の入れ替えを Budget を無視する Expiration ではなく Drift で行うようにし、Node Disruption Budget（`reasons: [Drifted]` + `schedule`）で Drift による disruption を夜間に限定して、影響の少ない時間帯にノードを入れ替え
-    - 許容されるサービスレベルが低い学習用クラスタで先行導入してから、本番の推論クラスタに展開
-  - 成果：学習用クラスタでの先行検証で、NVIDIA AMI の `pause.tar` 破損によりノードがクラスタに参加できない不具合を本番展開前に発見。upstream に報告し、修正がマージされた（[awslabs/amazon-eks-ami#2855](https://github.com/awslabs/amazon-eks-ami/issues/2855)）
+    - 許容されるサービスレベルが低い学習用の研究開発クラスタ（CDE / Job 基盤）で先行導入してから、本番の推論基盤（Circuit）に展開
+  - 成果：研究開発クラスタでの先行検証で、NVIDIA AMI の `pause.tar` 破損によりノードがクラスタに参加できない不具合を本番展開前に発見。upstream に報告し、修正がマージされた（[awslabs/amazon-eks-ami#2855](https://github.com/awslabs/amazon-eks-ami/issues/2855)）
 - Platform の拡張コンポーネントの実装と運用
   - Argo CD と連携する Image 更新 worker の実装
   - Job/Workflow の実行完了通知の仕組み
@@ -93,7 +93,7 @@ Kubernetes / AWS を中心としたクラウドネイティブ技術を軸に、
 ### GENIAC プロジェクト: GPU クラスタの構築 (2025/07〜2026/02、2026/07〜現在; 2027/02 終了予定)
 
 経済産業省 GENIAC プロジェクトにおいて、Cycle3, Cycle4 と 2 期続けて GPU クラスタの構築管理をリードしています。
-Cycle3 では AWS ParallelCluster を採用し、Cycle4 では部門の技術スタックの親和性を考慮して Kubernetes ベースのマルチノード分散学習にも対応するクラスタを構築しています。
+Cycle3 では AWS ParallelCluster を採用し、Cycle4 では部門の技術スタックの親和性を考慮して Kubernetes ベースのマルチノード分散学習にも対応するクラスタを構築しています。Cycle4 のクラスタは、研究開発クラスタ（CDE / Job 基盤）の spoke として使えるように設計しています。
 
 **チーム編成：** MLOps エンジニア 1名（自分）、MLエンジニア 3名、プロジェクトリード 1名
 
