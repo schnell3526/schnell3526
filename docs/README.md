@@ -11,7 +11,7 @@
 
 ## Summary
 
-ML ドメインとの連携（研究者・データサイエンティストとの協業、GPU の活用、CDE / Job 基盤などの特殊な用途）に強みを持つ ML Platform Engineer です。
+ML ドメインとの連携（研究者・データサイエンティストとの協業、GPU の活用、CDE（Cloud Development Environment）/ Job 基盤などの特殊な用途）に強みを持つ ML Platform Engineer です。
 
 NLP 研究者としてのバックグラウンドがあります。学生時代に約 120 ノード・960 GPU の分散学習を経験して ML の本番運用における基盤の重要性を実感し、ML 基盤エンジニアの道に進みました。
 
@@ -32,14 +32,14 @@ Kubernetes / AWS を中心としたクラウドネイティブ技術に精通し
 
 ### セキュリティと利便性を両立する研究開発クラスタの構築 (2026/03〜2026/10; その後改善運用)
 
-研究開発部を中心とした機密データを扱う複数部門向けのクラウド開発環境の発案、設計、構築、移行支援等を一気貫通で行いました。
-この取り組みにより、$10000/月弱のインフラコストの削減を達成しました。また、基盤の利用者は多様な種類のインスタンスを完全セルフサービスで構築できるようになりエンジニアの依頼対応工数を削減しました。
+研究開発部を中心とした機密データを扱う複数部門向けのクラウド開発環境の発案、設計、構築、移行支援等を一気通貫で行いました。
+この取り組みにより、月額 $10,000 弱のインフラコスト削減を達成しました。また、基盤の利用者は多様な種類のインスタンスを完全セルフサービスで構築できるようになりエンジニアの依頼対応工数を削減しました。
 
 **主な取り組み**
 
 - ネットワーク・セキュリティ境界の設計
   - VPC / Subnet 構成および Egress 制御の見直し
-  - tetragon (eBPF) を用いたランタイムセキュリティ監視の導入
+  - Tetragon (eBPF) を用いたランタイムセキュリティ監視の導入
 - 認証・認可・Secrets 基盤
   - Pod Identity を前提とした権限委譲モデルの設計
   - 監査要件を満たす Secrets 配布フローの標準化
@@ -50,7 +50,7 @@ Kubernetes / AWS を中心としたクラウドネイティブ技術に精通し
   - New Relic を中心とした監査ログ / メトリクスの統合基盤
   - Coder による研究者向けセルフサービス開発環境の提供
 
-**技術スタック：** EKS, Karpenter, GPU Operator, Kueue, Coder, tetragon, New Relic, Terraform
+**技術スタック：** EKS, Karpenter, GPU Operator, Kueue, Coder, Tetragon, New Relic, Terraform
 
 ---
 
@@ -67,30 +67,30 @@ Kubernetes / AWS を中心としたクラウドネイティブ技術に精通し
   - コントロールプレーンのバージョン更新戦略の作成
   - 各種 Controller の運用方針策定（Renovate 駆動のバージョンアップ戦略、運用上の考慮事項の周知） 
 - Platform の拡張コンポーネントの実装と運用
-  - ArgoCD と連携する Image 更新 worker の実装
+  - Argo CD と連携する Image 更新 worker の実装
   - Job/Workflow の実行完了通知の仕組み
   - GPU インスタンスの RI 使用量を把握するための Controller の実装
 
-**技術スタック：** EKS, Karpenter, GPU Operator, ArgoCD, Argo Workflows, Argo Rollouts, KEDA, Istio, Terraform, Datadog, NewRelic
+**技術スタック：** EKS, Karpenter, GPU Operator, Argo CD, Argo Workflows, Argo Rollouts, KEDA, Istio, Terraform, Datadog, New Relic
 
 ---
 
-### GENIAC プロジェクト: GPU クラスタの構築 (2025/07〜2026/02、2026/07~2027/02)
+### GENIAC プロジェクト: GPU クラスタの構築 (2025/07〜2026/02、2026/07〜現在; 2027/02 終了予定)
 
-経済産業省 GENIAC プロジェクトにおいて、Cycle3, Cycle4 と2期続けて GPU クラスタの構築管理のリードをしました。
-Cycle3 では AWS ParallelCluster を採用し、Cycle4 では部門の技術スタックの親和性を考慮して Kubernetes ベースのマルチノード分散学習にも対応するクラスタの構築をしました。
+経済産業省 GENIAC プロジェクトにおいて、Cycle3, Cycle4 と 2 期続けて GPU クラスタの構築管理をリードしています。
+Cycle3 では AWS ParallelCluster を採用し、Cycle4 では部門の技術スタックの親和性を考慮して Kubernetes ベースのマルチノード分散学習にも対応するクラスタを構築しています。
 
 **チーム編成：** MLOps エンジニア 1名（自分）、MLエンジニア 3名、プロジェクトリード 1名
 
 **主な取り組み**
 
 - AWS ParallelCluster / Amazon EKS を用いた GPU 学習環境の設計・構築
-- GCP → AWS のデータ転送コスト削減のための Google Cloud SDK・AWS SDK 互換のキャッシュプロキシの設計（実装の一部はインターン生に委譲、Golang）
+- GCP → AWS のデータ転送コスト削減のための Google Cloud SDK・AWS SDK 互換のキャッシュプロキシの設計（実装の一部はインターン生に委譲、Go）
   - Cycle3: 各ノードに systemd でデプロイ
-  - Cycle4 では Pod 単位の細かい認可要件を満たすためにK8sサイドカーとしてデプロイ
-- GPU 利用率(利用率、Mem利用率、SM使用率、帯域使用率、NVLink使用率、Xid エラー)等のモニタリングシステムの構築
-  - Cycle3: メトリクス送信 Job (on systemd timer) -> Amazon Cloud Watch
-  - Cycle4: メトリクス収集 DaemonSet -> NewRelic
+  - Cycle4 では Pod 単位の細かい認可要件を満たすためにK8s サイドカーとしてデプロイ
+- GPU メトリクス（使用率、メモリ使用率、SM 使用率、帯域使用率、NVLink 使用率、Xid エラー等）のモニタリングシステムの構築
+  - Cycle3: メトリクス送信 Job (on systemd timer) -> Amazon CloudWatch
+  - Cycle4: メトリクス収集 DaemonSet -> New Relic
 - エンタープライズ水準のセキュリティ要件を満たすためのシステム設計および CTO・情報セキュリティ部門長との折衝
 
 **技術スタック：** AWS ParallelCluster (Slurm, CloudFormation), Amazon EKS, Terraform, Okta
