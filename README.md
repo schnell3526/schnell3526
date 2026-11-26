@@ -1,37 +1,25 @@
-<picture>
-  <source
-    srcset="https://github-readme-stats.vercel.app/api?username=anuraghazra&show_icons=true&theme=dark"
-    media="(prefers-color-scheme: dark)"
-  />
-  <source
-    srcset="https://github-readme-stats.vercel.app/api?username=anuraghazra&show_icons=true"
-    media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
-  />
-  <img src="https://github-readme-stats.vercel.app/api?username=anuraghazra&show_icons=true" />
-</picture>
+### Shuntaro Ito
 
-# その他
-## Statistics
-<div align="center">
-    <a href="https://github.com/anuraghazra/github-readme-stats">
-        <img src="https://github-readme-stats.vercel.app/api?username=schnell3526&theme=monokai" />
-    </a>
-</div>
+**ML Platform Engineer** at [Sansan](https://github.com/sansaninc) · Tokyo, Japan
+
+NLP 研究のバックグラウンドを持つ Platform Engineer です。<br>
+研究者や ML エンジニアが使う Kubernetes / GPU 基盤の設計・構築・運用をしています。
+
+`Distributed Training` `Kubernetes` `Slurm` `AWS` `Terraform` `CNCF`
+
+[経歴](https://schnell3526.github.io/schnell3526/) · [Hugging Face](https://huggingface.co/schnell)
 
 ---
 
-## Language
-<div align="center">
-    <a href="https://github.com/anuraghazra/github-readme-stats">
-        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=schnell3526&layout=compact&langs_count=8&hide=html,blade,Jupyter,SCSS,CSS,Jupyter%20Notebook&theme=monokai" />
-    </a>
-</div>
+### Open Source
 
----
+マージされた主なコントリビューション
 
-## Activity
-<div align="center">
-    <a href="https://github.com/anuraghazra/github-readme-stats">
-        <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=schnell3526&theme=monokai" />
-    </a>
-</div>
+| Project | Contribution |
+| :-- | :-- |
+| [**coder/registry**](https://github.com/coder/registry) | vscode-web の healthcheck 先を `/version` に修正 [#923](https://github.com/coder/registry/pull/923) |
+| [**hashicorp/terraform-provider-kubernetes**](https://github.com/hashicorp/terraform-provider-kubernetes) | exec 認証設定の API version に関するドキュメントを更新 [#2823](https://github.com/hashicorp/terraform-provider-kubernetes/pull/2823) |
+| [**pytorch/tutorials**](https://github.com/pytorch/tutorials) | introduction のモデル定義部分のバグを修正 [#1644](https://github.com/pytorch/tutorials/pull/1644) |
+| [**EducationalTestingService/factor_analyzer**](https://github.com/EducationalTestingService/factor_analyzer) | `randomized_svd()` まわりの不具合を修正 [#95](https://github.com/EducationalTestingService/factor_analyzer/pull/95) |
+
+[すべてのマージ済み PR を見る →](https://github.com/search?q=author%3Aschnell3526+is%3Apr+is%3Amerged+is%3Apublic+-user%3Aschnell3526&type=pullrequests)
