@@ -80,6 +80,7 @@ Kubernetes / AWS を中心としたクラウドネイティブ技術に精通し
     - stg 環境でのクリティカルな GPU ワークロードの動作確認と、Argo Workflows で作成したテスト用 Workflow による事前のエラー検知
     - AMI の入れ替えを Budget を無視する Expiration ではなく Drift で行うようにし、Node Disruption Budget（`reasons: [Drifted]` + `schedule`）で Drift による disruption を夜間に限定して、影響の少ない時間帯にノードを入れ替え
     - 許容される SL が低い学習用クラスタで先行導入してから、本番の推論クラスタに展開
+  - 成果：学習用クラスタでの先行検証で、NVIDIA AMI の `pause.tar` 破損によりノードがクラスタに参加できない不具合を本番展開前に発見。upstream に報告し、修正がマージされた（[awslabs/amazon-eks-ami#2855](https://github.com/awslabs/amazon-eks-ami/issues/2855)）
 - Platform の拡張コンポーネントの実装と運用
   - Argo CD と連携する Image 更新 worker の実装
   - Job/Workflow の実行完了通知の仕組み
@@ -169,7 +170,7 @@ Cycle3 では AWS ParallelCluster を採用し、Cycle4 では部門の技術ス
 
 | プロジェクト | 内容 | リンク |
 | --- | --- | --- |
-| awslabs/amazon-eks-ami | NVIDIA AMI の `pause.tar` 破損でノードがクラスタに参加できない不具合を、影響範囲の調査とあわせて報告。[修正 PR](https://github.com/awslabs/amazon-eks-ami/pull/2858) がマージされ解決 | [#2855](https://github.com/awslabs/amazon-eks-ami/issues/2855) |
+| awslabs/amazon-eks-ami | AMI 更新の先行検証で見つけた、NVIDIA AMI の `pause.tar` 破損でノードがクラスタに参加できない不具合を、影響範囲の調査とあわせて報告。[修正 PR](https://github.com/awslabs/amazon-eks-ami/pull/2858) がマージされ解決 | [#2855](https://github.com/awslabs/amazon-eks-ami/issues/2855) |
 | hashicorp/terraform-provider-helm | 重要なバグ修正を取り込むコミュニティフォークの共有と、upstream への還元の相談 | [#1750](https://github.com/hashicorp/terraform-provider-helm/issues/1750) |
 | argoproj/argo-rollouts | 1つの Rollout で複数の workload を参照する機能を提案 | [#4565](https://github.com/argoproj/argo-rollouts/issues/4565) |
 | kedacore/keda | AWS SQS scaler に、メッセージの動きに基づくスケーリングを提案 | [#7327](https://github.com/kedacore/keda/issues/7327) |
