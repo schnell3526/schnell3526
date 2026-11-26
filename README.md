@@ -23,3 +23,7 @@ NLP 研究のバックグラウンドを持つ ML Platform Engineer です。<br
 | [**EducationalTestingService/factor_analyzer**](https://github.com/EducationalTestingService/factor_analyzer) | `randomized_svd()` に `random_state` を指定して警告を解消 [#95](https://github.com/EducationalTestingService/factor_analyzer/pull/95) |
 
 [すべてのマージ済み PR を見る →](https://github.com/search?q=author%3Aschnell3526+is%3Apr+is%3Amerged+is%3Apublic+-user%3Aschnell3526&type=pullrequests)
+
+メンテナンスしているフォーク
+
+- [**schnell3526/terraform-provider-helm**](https://github.com/schnell3526/terraform-provider-helm) — [hashicorp/terraform-provider-helm](https://github.com/hashicorp/terraform-provider-helm) のコミュニティフォーク。より早いバグ修正を目的にメンテナンス
