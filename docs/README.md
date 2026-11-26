@@ -73,6 +73,13 @@ Kubernetes / AWS を中心としたクラウドネイティブ技術に精通し
   - 約 20 種類のアドオン（Karpenter, GPU Operator, Istio, Argo CD, KEDA, cert-manager, EKS 標準アドオンなど）を Renovate でバージョン管理し、3 名のチームで Renovate の PR を起点に分担して更新する運用を確立
   - 更新の担当者には、そのアドオンがクラスタ内でどう動いているか、更新でどんな影響が起こりうるかを理解したうえで作業してもらう形にし、更新作業そのものをチームのクラスタ知識のキャッチアップの場にした
   - 成果：こまめな更新によるセキュリティの強化、Blue/Green 方式のクラスタ更新で一度に扱う差分が減ったことによる負担の軽減、属人化の解消
+- AMI 更新を「クラスタのライフサイクルと同一」から「AMI のリリースごと（1〜2 週間に 1 回程度）」へ移行
+  - 課題：AMI がクラスタと同じ寿命だったため、長寿命のワークロードでは Karpenter の `expireAfter` による強制的なノード入れ替えが、Node Disruption Budget を無視して日中に発生していた。また、セキュリティ対応で AMI の入れ替えを求められる機会も増えていた
+  - AMI をこまめに入れ替える前提の仕組みを構築
+    - Renovate による新しい AMI の検知
+    - stg 環境でのクリティカルな GPU ワークロードの動作確認と、Argo Workflows で作成したテスト用 Workflow による事前のエラー検知
+    - AMI の入れ替えを Budget を無視する Expiration ではなく Drift で行うようにし、Node Disruption Budget（`reasons: [Drifted]` + `schedule`）で Drift による disruption を夜間に限定して、影響の少ない時間帯にノードを入れ替え
+    - 許容される SL が低い学習用クラスタで先行導入してから、本番の推論クラスタに展開
 - Platform の拡張コンポーネントの実装と運用
   - Argo CD と連携する Image 更新 worker の実装
   - Job/Workflow の実行完了通知の仕組み
