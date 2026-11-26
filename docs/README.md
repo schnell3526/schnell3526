@@ -17,16 +17,14 @@ NLP 研究者としてのバックグラウンドがあります。学生時代�
 
 現在は研究開発部門向けの 2 種類の EKS クラスタのオーナーとして、設計・構築・運用を担当しています。
 
-- **推論基盤：** 本番 150〜250 ノード
-- **CDE / Job 基盤：** 50 名以上の研究者が利用、マルチノード分散学習に対応
+- **推論基盤（Circuit）：** 本番 150〜250 ノード
+- **CDE / Job 基盤（研究開発クラスタ）：** 50 名以上の研究者が利用、マルチノード分散学習に対応
 
-構築して終わりにせず、運用しながら仕組みとチームの両方を継続的に改善することを重視しています。
+Kubernetes / AWS を中心としたクラウドネイティブ技術を軸に、構築して終わりにせず、運用しながら仕組みとチームの両方を継続的に改善することを重視しています。課題を OSS の導入、Controller の内製、OSS への貢献、文化の醸成のどれで解決すべきか判断できることが強みです。
 
 立場上のリーダーではありませんが、チームの成果を最大化するために、レビューを通じたメンバーの支援、タスクの分配、基盤の機能開発方針の策定を担っています。また、採用・評価基準づくり・メンタリングを通じてチームづくりにも関わっています。
 
-Kubernetes / AWS を中心としたクラウドネイティブ技術に精通しています。課題を OSS の導入、Controller の内製、OSS への貢献、文化の醸成のどれで解決すべきか判断できることが強みです。
-
-また、副業として Agent Platform（Vertex AI）や BigQuery を活用した MLOps 関連の業務にも従事しています。
+副業では、Agent Platform（Vertex AI）や BigQuery を活用した MLOps 関連の業務にも従事しています。
 
 ---
 
@@ -34,7 +32,7 @@ Kubernetes / AWS を中心としたクラウドネイティブ技術に精通し
 
 ## Sansan 株式会社（2024/04〜現在）
 
-### セキュリティと利便性を両立する研究開発クラスタの構築 (2026/03〜2026/10; その後改善運用)
+### セキュリティと利便性を両立する研究開発クラスタ（CDE / Job 基盤）の構築 (2026/03〜2026/10; その後改善運用)
 
 研究開発部を中心とした機密データを扱う複数部門向けのクラウド開発環境の発案、設計、構築、移行支援等を一気通貫で行いました。
 この取り組みにより、月額 $10,000 弱のインフラコスト削減を達成しました。また、基盤の利用者は多様な種類のインスタンスを完全セルフサービスで構築できるようになりエンジニアの依頼対応工数を削減しました。
@@ -58,7 +56,7 @@ Kubernetes / AWS を中心としたクラウドネイティブ技術に精通し
 
 ---
 
-### EKS アプリケーションプラットフォームの設計・構築・運用 (2025/10〜現在)
+### EKS アプリケーションプラットフォーム（推論基盤 Circuit）の設計・構築・運用 (2025/10〜現在)
 
 研究開発部門向け ML 基盤「Circuit」の Platform チームに所属。150〜250 ノード規模の EKS クラスタのオーナーとして、設計から運用まで一貫して担当しています。
 
@@ -81,14 +79,14 @@ Kubernetes / AWS を中心としたクラウドネイティブ技術に精通し
     - Renovate による新しい AMI の検知
     - stg 環境でのクリティカルな GPU ワークロードの動作確認と、Argo Workflows で作成したテスト用 Workflow による事前のエラー検知
     - AMI の入れ替えを Budget を無視する Expiration ではなく Drift で行うようにし、Node Disruption Budget（`reasons: [Drifted]` + `schedule`）で Drift による disruption を夜間に限定して、影響の少ない時間帯にノードを入れ替え
-    - 許容される SL が低い学習用クラスタで先行導入してから、本番の推論クラスタに展開
+    - 許容されるサービスレベルが低い学習用クラスタで先行導入してから、本番の推論クラスタに展開
   - 成果：学習用クラスタでの先行検証で、NVIDIA AMI の `pause.tar` 破損によりノードがクラスタに参加できない不具合を本番展開前に発見。upstream に報告し、修正がマージされた（[awslabs/amazon-eks-ami#2855](https://github.com/awslabs/amazon-eks-ami/issues/2855)）
 - Platform の拡張コンポーネントの実装と運用
   - Argo CD と連携する Image 更新 worker の実装
   - Job/Workflow の実行完了通知の仕組み
   - GPU インスタンスの RI 使用量を把握するための Controller の実装
 
-**技術スタック：** EKS, Karpenter, GPU Operator, Argo CD, Argo Workflows, Argo Rollouts, KEDA, Istio, Terraform, Datadog, New Relic
+**技術スタック：** EKS, Karpenter, GPU Operator, Argo CD, Argo Workflows, Argo Rollouts, KEDA, Istio, Renovate, Terraform, Datadog, New Relic
 
 ---
 
@@ -104,7 +102,7 @@ Cycle3 では AWS ParallelCluster を採用し、Cycle4 では部門の技術ス
 - AWS ParallelCluster / Amazon EKS を用いた GPU 学習環境の設計・構築
 - GCP → AWS のデータ転送コスト削減のための Google Cloud SDK・AWS SDK 互換のキャッシュプロキシの設計（実装の一部はインターン生に委譲、Go）
   - Cycle3: 各ノードに systemd でデプロイ
-  - Cycle4 では Pod 単位の細かい認可要件を満たすためにK8s サイドカーとしてデプロイ
+  - Cycle4: Pod 単位の細かい認可要件を満たすために K8s サイドカーとしてデプロイ
 - GPU メトリクス（使用率、メモリ使用率、SM 使用率、帯域使用率、NVLink 使用率、Xid エラー等）のモニタリングシステムの構築
   - Cycle3: メトリクス送信 Job (on systemd timer) -> Amazon CloudWatch
   - Cycle4: メトリクス収集 DaemonSet -> New Relic
@@ -159,15 +157,6 @@ Cycle3 では AWS ParallelCluster を採用し、Cycle4 では部門の技術ス
 
 ## OSS 貢献
 
-### マージされた主なコントリビューション
-
-| プロジェクト | 内容 | リンク |
-| --- | --- | --- |
-| coder/registry | vscode-web の healthcheck 先を `/version` に修正 | [#923](https://github.com/coder/registry/pull/923) |
-| hashicorp/terraform-provider-kubernetes | ドキュメントとサンプルの exec 認証の API version を `v1` に更新 | [#2823](https://github.com/hashicorp/terraform-provider-kubernetes/pull/2823) |
-| pytorch/tutorials | チュートリアルのモデル定義から出力層の不要な ReLU を削除 | [#1644](https://github.com/pytorch/tutorials/pull/1644) |
-| EducationalTestingService/factor_analyzer | `randomized_svd()` に `random_state` を指定して警告を解消 | [#95](https://github.com/EducationalTestingService/factor_analyzer/pull/95) |
-
 ### 主な Issue 投稿
 
 | プロジェクト | 内容 | リンク |
@@ -176,6 +165,15 @@ Cycle3 では AWS ParallelCluster を採用し、Cycle4 では部門の技術ス
 | hashicorp/terraform-provider-helm | 重要なバグ修正を取り込むコミュニティフォークの共有と、upstream への還元の相談 | [#1750](https://github.com/hashicorp/terraform-provider-helm/issues/1750) |
 | argoproj/argo-rollouts | 1つの Rollout で複数の workload を参照する機能を提案 | [#4565](https://github.com/argoproj/argo-rollouts/issues/4565) |
 | kedacore/keda | AWS SQS scaler に、メッセージの動きに基づくスケーリングを提案 | [#7327](https://github.com/kedacore/keda/issues/7327) |
+
+### マージされた主なコントリビューション
+
+| プロジェクト | 内容 | リンク |
+| --- | --- | --- |
+| coder/registry | vscode-web の healthcheck 先を `/version` に修正 | [#923](https://github.com/coder/registry/pull/923) |
+| hashicorp/terraform-provider-kubernetes | ドキュメントとサンプルの exec 認証の API version を `v1` に更新 | [#2823](https://github.com/hashicorp/terraform-provider-kubernetes/pull/2823) |
+| pytorch/tutorials | チュートリアルのモデル定義から出力層の不要な ReLU を削除 | [#1644](https://github.com/pytorch/tutorials/pull/1644) |
+| EducationalTestingService/factor_analyzer | `randomized_svd()` に `random_state` を指定して警告を解消 | [#95](https://github.com/EducationalTestingService/factor_analyzer/pull/95) |
 
 ### フォークのメンテナンス
 
