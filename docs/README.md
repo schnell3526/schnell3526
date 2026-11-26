@@ -145,11 +145,18 @@ Kubernetes / AWS を中心としたクラウドネイティブ技術に精通し
 | pytorch/tutorials | チュートリアルのモデル定義から出力層の不要な ReLU を削除 | [#1644](https://github.com/pytorch/tutorials/pull/1644) |
 | EducationalTestingService/factor_analyzer | `randomized_svd()` に `random_state` を指定して警告を解消 | [#95](https://github.com/EducationalTestingService/factor_analyzer/pull/95) |
 
+### 主な Issue 投稿
+
+| プロジェクト | 内容 | リンク |
+| --- | --- | --- |
+| awslabs/amazon-eks-ami | NVIDIA AMI の `pause.tar` 破損でノードがクラスタに参加できない不具合を、影響範囲の調査とあわせて報告。[修正 PR](https://github.com/awslabs/amazon-eks-ami/pull/2858) がマージされ解決 | [#2855](https://github.com/awslabs/amazon-eks-ami/issues/2855) |
+| hashicorp/terraform-provider-helm | 重要なバグ修正を取り込むコミュニティフォークの共有と、upstream への還元の相談 | [#1750](https://github.com/hashicorp/terraform-provider-helm/issues/1750) |
+| argoproj/argo-rollouts | 1つの Rollout で複数の workload を参照する機能を提案 | [#4565](https://github.com/argoproj/argo-rollouts/issues/4565) |
+| kedacore/keda | AWS SQS scaler に、メッセージの動きに基づくスケーリングを提案 | [#7327](https://github.com/kedacore/keda/issues/7327) |
+
 ### フォークのメンテナンス
 
 - [schnell3526/terraform-provider-helm](https://github.com/schnell3526/terraform-provider-helm)
-
-※ Issue の起票や Issue 上の議論にも継続的に参加しています
 
 ---
 

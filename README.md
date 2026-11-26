@@ -13,7 +13,7 @@ NLP 研究のバックグラウンドを持つ ML Platform Engineer です。<br
 
 ### Open Source
 
-マージされた主なコントリビューション
+#### Pull Requests（マージ済み）
 
 | Project | Contribution |
 | :-- | :-- |
@@ -24,6 +24,17 @@ NLP 研究のバックグラウンドを持つ ML Platform Engineer です。<br
 
 [すべてのマージ済み PR を見る →](https://github.com/search?q=author%3Aschnell3526+is%3Apr+is%3Amerged+is%3Apublic+-user%3Aschnell3526&type=pullrequests)
 
-メンテナンスしているフォーク
+#### Issues
+
+| Project | Contribution |
+| :-- | :-- |
+| [**awslabs/amazon-eks-ami**](https://github.com/awslabs/amazon-eks-ami) | NVIDIA AMI の `pause.tar` 破損でノードがクラスタに参加できない不具合を、影響範囲の調査とあわせて報告。[修正 PR](https://github.com/awslabs/amazon-eks-ami/pull/2858) がマージされ解決 [#2855](https://github.com/awslabs/amazon-eks-ami/issues/2855) |
+| [**hashicorp/terraform-provider-helm**](https://github.com/hashicorp/terraform-provider-helm) | 重要なバグ修正を取り込むコミュニティフォークの共有と、upstream への還元の相談 [#1750](https://github.com/hashicorp/terraform-provider-helm/issues/1750) |
+| [**argoproj/argo-rollouts**](https://github.com/argoproj/argo-rollouts) | 1つの Rollout で複数の workload を参照する機能を提案 [#4565](https://github.com/argoproj/argo-rollouts/issues/4565) |
+| [**kedacore/keda**](https://github.com/kedacore/keda) | AWS SQS scaler に、メッセージの動きに基づくスケーリングを提案 [#7327](https://github.com/kedacore/keda/issues/7327) |
+
+[すべての Issue を見る →](https://github.com/search?q=author%3Aschnell3526+is%3Aissue+is%3Apublic+-user%3Aschnell3526&type=issues)
+
+#### メンテナンスしているフォーク
 
 - [**schnell3526/terraform-provider-helm**](https://github.com/schnell3526/terraform-provider-helm) — [hashicorp/terraform-provider-helm](https://github.com/hashicorp/terraform-provider-helm) のコミュニティフォーク。より早いバグ修正を目的にメンテナンス
