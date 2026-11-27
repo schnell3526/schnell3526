@@ -1,6 +1,6 @@
 ### Shuntaro Ito
 
-**ML Platform Engineer** at [Sansan](https://github.com/sansaninc) · Tokyo, Japan
+**ML Platform Engineer** at Sansan · Tokyo, Japan
 
 NLP 研究のバックグラウンドを持つ ML Platform Engineer です。<br>
 研究者や ML エンジニアが使う Kubernetes / GPU 基盤の設計・構築・運用をしています。
